@@ -5,8 +5,10 @@ version: '3.4'
 services:
   dockertest:
     image: dockertest
-    build:
-      context: .
-      dockerfile: ./Dockerfile
     ports:
       - 5127:5127
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
+
